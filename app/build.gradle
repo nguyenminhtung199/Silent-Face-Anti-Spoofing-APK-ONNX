@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 33
+
+    signingConfigs {
+        debug {
+            keyAlias 'key'
+            keyPassword '123456'
+            storeFile file('../key.jks')
+            storePassword '123456'
+        }
+        release {
+            keyAlias 'key'
+            keyPassword '123456'
+            storeFile file('../key.jks')
+            storePassword '123456'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.mv.livebodyexample"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "0.3"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        project.archivesBaseName = "Icomm_AS_Switch_4_models"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            debuggable false
+            jniDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${archivesBaseName}_${defaultConfig.versionName}_${variant.buildType.name}.apk"
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    namespace 'com.mv.livebodyexample'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation project(path: ':engine')
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+
+    kapt "com.android.databinding:compiler:"
+}

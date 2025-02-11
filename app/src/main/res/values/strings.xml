@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IcAs</string>
+
+    <string name="real_face">REAL</string>
+    <string name="fake_face">FAKE</string>
+    <string name="set_threshold_dialog_title">Set threshold</string>
+    <string name="set_threshold_dialog_text_hint">Value 0–1, default 0.915</string>
+    <string name="set_threshold_dialog_confirm">Confirm</string>
+    <string name="set_threshold_dialog_hint">Please enter a threshold</string>
+</resources>

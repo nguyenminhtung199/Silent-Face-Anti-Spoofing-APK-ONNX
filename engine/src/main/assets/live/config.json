@@ -1,0 +1,38 @@
+[
+  {
+    "name": "mbfv3_aux112+augall_v3_expand1.4_nopadding",
+    "org_resize": false,
+    "scale": 1.4,
+    "shift_x": 0,
+    "shift_y": 0,
+    "height": 112,
+    "width": 112
+  },
+  {
+    "name": "mbfv3_aux112+augall_v3_randexpand4.0_nopadding",
+    "org_resize": false,
+    "scale": 4.0,
+    "shift_x": 0,
+    "shift_y": 0,
+    "height": 112,
+    "width": 112
+  },
+  {
+    "name": "mbfv3lbp_aux112+augall_v3_randexpand4.0_nopadding",
+    "org_resize": false,
+    "scale": 4.0,
+    "shift_x": 0,
+    "shift_y": 0,
+    "height": 112,
+    "width": 112
+  },
+  {
+    "name": "mobilenetv3_small_050.lamb_in1k_best",
+    "org_resize": false,
+    "scale": 2.6,
+    "shift_x": 0,
+    "shift_y": 0,
+    "height": 224,
+    "width": 224
+  }
+]
